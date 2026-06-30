@@ -36,6 +36,25 @@ Zero Trust → Access → Applications → **Add self-hosted application**:
   otherwise public).
 - Policy: Allow → Emails → leadership list. One-time PIN works without SSO setup.
 
+## Analytics (PostHog)
+The site is fully instrumented for PostHog. To turn it on, edit the marked block near the top of
+`index.html` (`<head>`) and paste your **Project API Key** (PostHog → Settings → Project → *Project
+API Key*, starts with `phc_`), plus set the region host (`us.i.posthog.com` or `eu.i.posthog.com`).
+Until a real key is present, analytics stays off — no requests, no errors.
+
+What it tracks once the key is set:
+- **Visits** — a `$pageview` fires on load (each section is its own virtual pageview, URL carries the
+  `#section` hash).
+- **Tab navigation** — a `tab_click` event with `to`, `from`, and `method` (`nav_tab`, `pager`,
+  `rail_ticker`, `keyboard`, `brand`, `fee_toggle`).
+- **Time on each tab** — a `section_time` event with `section`, `section_label`, and `seconds` when a
+  section is left (plus the open section is flushed on tab-hide / exit via `capture_pageleave`).
+- **Everything else** — `autocapture` (every click/interaction), **session replays**, and click/scroll
+  **heatmaps** are enabled.
+
+All events are tagged with `proposal: multi-family-microsite` (useful if the same PostHog project
+hosts more than one site).
+
 ## Operational notes
 - `_headers` enforces `noindex` and security headers at the edge.
 - Bracketed placeholders (e.g. `[ Property Name ]`, `X%`, `$X`) are intentional — they are filled in
