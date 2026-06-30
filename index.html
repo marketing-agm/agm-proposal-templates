@@ -93,8 +93,6 @@ em{font-style:italic;}
    ============================================================ */
 .topbar{position:sticky; top:0; z-index:100; background:color-mix(in srgb,var(--bg) 88%, transparent); backdrop-filter:saturate(140%) blur(10px); border-bottom:1px solid var(--line-soft);}
 .topbar-inner{display:flex; align-items:center; gap:22px; min-height:var(--hdr); padding:10px 40px;}
-.brand{display:flex; align-items:baseline; gap:9px; font-family:var(--serif); font-weight:700; color:var(--ink); font-size:17px; letter-spacing:.01em; cursor:pointer; white-space:nowrap;}
-.brand .mark{font-size:10px; font-weight:700; letter-spacing:.18em; color:var(--accent); text-transform:uppercase; font-family:var(--sans);}
 .nav-links{display:flex; flex:1; align-items:center; gap:14px;}
 .nav-tabs{flex:1; display:flex; flex-wrap:wrap; justify-content:flex-end; align-items:center; gap:4px;}
 .nav-right{display:flex; align-items:center; gap:8px; flex:0 0 auto;}
@@ -376,7 +374,9 @@ em{font-style:italic;}
 .sf-brand{display:flex; align-items:center; gap:14px;}
 .sf-brand svg{color:var(--accent-2); flex:0 0 auto;}
 .sf-id{display:flex; flex-direction:column; gap:5px;}
+.sf-wordrow{display:flex; align-items:baseline; gap:12px; flex-wrap:wrap;}
 .sf-word{font-family:var(--serif); font-weight:700; font-size:18px; color:#fff; letter-spacing:.04em; line-height:1;}
+.sf-mf{font-size:10px; font-weight:700; letter-spacing:.18em; text-transform:uppercase; color:var(--accent-2); line-height:1;}
 .sf-tag{font-size:9.5px; font-weight:600; letter-spacing:.2em; text-transform:uppercase; color:rgba(255,255,255,0.5); line-height:1;}
 .sf-meta{display:flex; flex-direction:column; gap:9px; text-align:right;}
 .sf-contact{font-size:12.5px; color:rgba(255,255,255,0.82); font-variant-numeric:tabular-nums;}
@@ -479,7 +479,6 @@ html{scrollbar-width:thin; scrollbar-color:var(--line-strong) transparent;}
 <!-- ===================== TOP BAR ===================== -->
 <header class="topbar">
   <div class="topbar-inner">
-    <div class="brand" data-route="about" role="button" tabindex="0">AGM&nbsp;Real&nbsp;Estate <span class="mark">Multi-Family</span></div>
     <button class="hamburger" id="hamburger" aria-label="Menu" aria-expanded="false">☰</button>
     <nav class="nav-links" id="navlinks" aria-label="Primary">
       <div class="nav-tabs">
@@ -1077,7 +1076,7 @@ html{scrollbar-width:thin; scrollbar-color:var(--line-strong) transparent;}
   <div class="sf-inner">
     <div class="sf-brand">
       <svg width="34" height="34" viewBox="0 0 32 32" aria-hidden="true"><path fill="currentColor" d="M5 28 16 4l11 24h-5.4l-5.6-12.6L10.4 28z"/><path fill="currentColor" d="M12.6 22h6.8l1.8 4H10.8z"/></svg>
-      <span class="sf-id"><span class="sf-word">AGM Real Estate Group</span><span class="sf-tag">Asset · Growth · Management</span></span>
+      <span class="sf-id"><span class="sf-wordrow"><span class="sf-word">AGM Real Estate Group</span><span class="sf-mf">Multi-Family</span></span><span class="sf-tag">Asset · Growth · Management</span></span>
     </div>
     <div class="sf-meta">
       <div class="sf-contact"><a href="https://www.agmrealestategroup.com">agmrealestategroup.com</a> &middot; 206.622.8600 &middot; 12330 Northup Way, Bellevue, WA 98005</div>
